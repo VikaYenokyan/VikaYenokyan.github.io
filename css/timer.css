@@ -21,7 +21,7 @@ h1{
     display: flex;
     justify-content: center;
     font-family: 'Source Code Pro', monospace;
-    
+    flex-wrap: wrap;
 }
 
 .timer .timer__block{
@@ -42,6 +42,7 @@ h1{
 }
 
 #days, #hours, #minutes, #seconds{
+    font-size: 4rem;
     display: flex;
     justify-content: center;
 }
