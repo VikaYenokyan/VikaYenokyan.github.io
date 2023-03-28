@@ -1,0 +1,170 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #faf5f5;
+    color: #baabab;
+}
+
+header{
+    padding: 4rem 1rem 0;
+    margin: 0 auto;
+}
+
+header h1{
+    font-size: 7rem;
+    font-weight: 300;
+    color: #baabab;
+}
+
+#new-task-form{
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+input, button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.edit, .delete, .save, .add{
+    opacity: 0.2;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.edit img, .delete img, .save img{
+    width: 100%;
+}
+
+#new-task-input{
+    flex: 1 1 0%;
+    background-color: #fff;
+    padding: 1rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+#new-task-submit{
+    width: 100%;
+    height: 1.875rem;
+    width: 1.875rem;
+}
+
+#new-task-submit:hover{
+    opacity: 0.8;
+}
+
+#new-task-submit:active{
+    opacity: 0.6;
+}
+
+main{
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task-list{
+    box-shadow: 5px 5px 5px #baabab;
+}
+
+
+#tasks .task{
+    background-color: #fff;
+    /* padding: 0 1rem; */
+    padding: 1rem 0 1rem 1rem;
+    border-top: 2px solid #ebe4e4;
+
+}
+
+.task{
+    border-top: #baabab;
+}
+
+#tasks .task .content .text{
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+    margin-left: 1rem;
+}
+
+#tasks .task .content .text:not(:read-only){
+    color:dimgray;
+}
+
+.content{
+    display: flex;
+}
+
+#tasks .task .actions{
+    display: flex;
+    margin: 0 -9.6rem;
+}
+
+.task .actions button, .save{
+    cursor: pointer;
+    margin: 0 0.5rem;
+    transition: 0.4s;
+}
+
+.add{
+    transition: 0.4s;
+}
+
+.task .actions button:hover, .save:hover{
+    opacity: 0.8;
+}
+
+.task .actions button:active, .save:hover{
+    opacity: 0.4;
+}
+
+.task #checkbox::before{
+    border-radius: 50%;
+}
+
+.checkbox{
+    transition: 0.4s;
+}
+
+label {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.input-checkbox{
+    position: absolute;
+    left: -9999px;
+}
+
+.checkbox{
+  border: 1px solid #baa4a4;
+  border-radius: 50px;
+  height: 1.4285714286rem;
+  width: 1.4285714286rem;
+  display: inline-block;
+  position: relative;
+  top: 0.5rem;
+  left: 0;
+  cursor: pointer;
+}
+
+.input-checkbox:checked + .checkbox{
+    background: url(/icons/checkmark.svg) no-repeat 50% 50%;
+    background-size: 23px;
+    background-color: #fff;
+    border-color: #baa4a4;
+}
