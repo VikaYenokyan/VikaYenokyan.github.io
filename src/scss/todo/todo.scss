@@ -1,0 +1,146 @@
+$var1: #faf5f5;
+$var2: #baabab;
+$var3: #ffffff;
+$var4: #ebe4e4;
+$var5: #baa4a4;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: 'Courier New', Courier, monospace;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: $var1;
+	color: $var2;
+}
+header {
+	padding: 4rem 1rem 0;
+	margin: 0 auto;
+	h1 {
+		font-size: 7rem;
+		font-weight: 300;
+		color: $var2;
+	}
+}
+#new-task-form {
+	display: flex;
+	background-color: $var3;
+	align-items: center;
+	padding-right: 1rem;
+}
+input, button {
+	border: none;
+	outline: none;
+	background: none;
+}
+.edit, .delete, .save, .add {
+	opacity: 0.2;
+	height: 2.5rem;
+	width: 2.5rem;
+}
+.edit img, .delete img, .save img {
+	width: 100%;
+}
+#new-task-input {
+	flex: 1 1 0%;
+	background-color: $var3;
+	padding: 1rem;
+	margin-right: 1rem;
+	font-size: 1.25rem;
+}
+#new-task-submit {
+	width: 100%;
+	height: 1.875rem;
+	width: 1.875rem;
+	&:hover {
+		opacity: 0.8;
+	}
+	&:active {
+		opacity: 0.6;
+	}
+}
+main {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+.task-list {
+	box-shadow: 5px 5px 5px $var2;
+}
+#tasks .task {
+	background-color: $var3;
+	padding: 0 1rem;
+	padding: 1rem 0 1rem 1rem;
+	border-top: 2px solid $var4;
+	/* padding: 0 1rem; */
+	.content .text {
+		font-size: 1.125rem;
+		width: 100%;
+		display: block;
+		transition: 0.4s;
+		margin-left: 1rem;
+		&:not(:read-only) {
+			color: dimgray;
+		}
+	}
+	.actions {
+		display: flex;
+		margin: 0 -9.6rem;
+	}
+}
+.task {
+	border-top: $var2;
+	#checkbox::before {
+		border-radius: 50%;
+	}
+}
+.content {
+	display: flex;
+}
+.task .actions button, .save {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	transition: 0.4s;
+	&:hover {
+		opacity: 0.8;
+	}
+	&:active, &:hover {
+		opacity: 0.4;
+	}
+}
+.add {
+	transition: 0.4s;
+}
+.checkbox {
+	transition: 0.4s;
+}
+label {
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	color: black;
+}
+.input-checkbox {
+	position: absolute;
+	left: -9999px;
+	&:checked + .checkbox {
+		background: url(/icons/todo/checkmark.svg);
+		background-size: 23px;
+		background-color: $var3;
+		border-color: $var5;
+	}
+}
+.checkbox {
+	border: 1px solid $var5;
+	border-radius: 50px;
+	height: 1.4285714286rem;
+	width: 1.4285714286rem;
+	display: inline-block;
+	position: relative;
+	top: 0.5rem;
+	left: 0;
+	cursor: pointer;
+}
