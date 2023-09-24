@@ -78,7 +78,7 @@
             <span class="hi"> привет... </span>
             <h3>Меня зовут <span> Виктория Енокян </span> </h3>
             <p class="info"> Я Front-end разработчик </p>
-            <p class="text">Студентка магистратуры Воронежского Государственного Университета.
+            <p class="text">Выпускница магистратуры Воронежского Государственного Университета.
                 Имела практический опыт использования технологий HTML, CSS, JavaScript,
                 npm, GULP, SCSS. Проходила обучение на стажировке под руководством
                 опытного наставника.</p>
@@ -108,10 +108,10 @@
 
             <div class="content en show">
                 <h3> My name is Viktoria Yenokyan & I am a Front-end developer </h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolorem libero esse veniam, perspiciatis quod rerum nihil earum eveniet vel commodi impedit fugiat ea amet voluptas quaerat incidunt praesentium eum!</p>
+                <p>I have been studying Front-end development on my own for more than a year, I am improving my development skills, I know how to work in a team, and I have experience working with clients.</p>
                 <div class="box-container">
                     <div class="box">
-                        <p> <span> Age : </span> 23 </p>
+                        <p> <span> Age : </span> 24 </p>
                         <p> <span> Gender : </span> female </p>
                         <p> <span> Language : </span> russian, english </p>
                         <p> <span> Work : </span> front-end developer </p>
@@ -128,10 +128,11 @@
             </div>
             <div class="content ru hide">
                 <h3> Меня зовут Виктория Енокян и я Front-end разработчик </h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolorem libero esse veniam, perspiciatis quod rerum nihil earum eveniet vel commodi impedit fugiat ea amet voluptas quaerat incidunt praesentium eum!</p>
+                <p>  Я самостоятельно изучаю Front-end разработку больше года, улучшаю свои навыки разработки, умею работать в команде, имею опыт работы с клиентами.
+                </p>
                 <div class="box-container">
                     <div class="box">
-                        <p> <span> Возраст : </span> 23 </p>
+                        <p> <span> Возраст : </span> 24 </p>
                         <p> <span> Пол : </span> женский </p>
                         <p> <span> Языки : </span> русский, английский </p>
                         <p> <span> Должность : </span> front-end разработчик </p>
@@ -264,7 +265,7 @@
                 <i class="fa-solid fa-user-graduate"></i>
                 <h3>Master</h3>
                 <p>Faculty of Applied Mathematics, Informatics and
-                    mechanics, 2021 - present
+                    mechanics, 2021 - 2023
                 </p>
                 <p>
                     Mathematical software and programming of computer graphics
@@ -273,7 +274,7 @@
             <div class="box ru hide">
                 <i class="fa-solid fa-user-graduate"></i>
                 <h3>Магистр</h3>
-                <p>Факультет прикладной математики, информатики и механики, 2021 - наст. вр.
+                <p>Факультет прикладной математики, информатики и механики, 2021 - 2023
                 </p>
                 <p>Математическое обеспечение и программирование компьютерной графики
                 </p>
@@ -466,16 +467,16 @@
 
         <div class="row">
 
-            <form action="">
+            <form action="send.php" method="post">
 
-                <input type="text" placeholder="name" class="box en show">
-                <input type="text" placeholder="имя" class="box ru hide">
-                <input type="email" placeholder="email" class="box">
-                <input type="number" placeholder="number" class="box en show">
-                <input type="number" placeholder="телефон" class="box ru hide">
+                <input type="text" name="fio" placeholder="name" class="box en show" required>
+                <input type="text" name="fio" placeholder="имя" class="box ru hide" required>
+                <input type="email" name="email" placeholder="email" class="box" required>
+                <input type="number" name="tel" placeholder="number" class="box en show" required>
+                <input type="number" name="tel" placeholder="телефон" class="box ru hide" required>
 
-                <textarea class="en show" name="" placeholder="message" id="" cols="30" rows="10"></textarea>
-                <textarea class="ru hide" name="" placeholder="сообщение" id="" cols="30" rows="10"></textarea>
+                <textarea class="en show" name="info" placeholder="message" id="" cols="30" rows="10" required></textarea>
+                <textarea class="ru hide" name="info" placeholder="сообщение" id="" cols="30" rows="10" required></textarea>
 
                 <div class="en show">
                     <input type="submit" class="btn" value="send message">
