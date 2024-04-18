@@ -37,16 +37,20 @@ let timer = "timer";
 let todo = "todo";
 let meta = "meta";
 let food = "food";
+let bottle = "bottle";
+let slider = "slider";
+let forest = "forest";
 
 
 let path = {
 	src: {
 		html: source_folder + "/**/*.{html, htm}",
 		pdf: source_folder + "/**/*.pdf",
-		//fonts: {
-			//uber: source_folder + "/fonts/uber/**/*",
-			//meta: source_folder + "/fonts/meta/**/*",
-		//},
+		fonts: {
+			uber: source_folder + "/fonts/uber/**/*",
+			meta: source_folder + "/fonts/meta/**/*",
+			forest: source_folder + "/fonts/forest/**/*",
+		},
 		icons: {
 			uber: source_folder + '/icons/uber/**/*',
 			todo: source_folder + '/icons/todo/**/*',
@@ -63,7 +67,8 @@ let path = {
 			timer: source_folder + "/js/" + timer + ".js",
 			todo: source_folder + "/js/" + todo + ".js",
 			meta: source_folder + "/js/" + meta + ".js",
-			food: source_folder + "/js/" + food + "/bundle.js"
+			food: source_folder + "/js/" + food + "/bundle.js",
+			forest: source_folder + "/js/" + forest + ".js"
 		},
 		img: {
 			src: {
@@ -71,6 +76,9 @@ let path = {
 				uber: source_folder + "/img/" + source_folder + "/" + uber + "/",
 				meta: source_folder + "/img/" + source_folder + "/" + meta + "/",
 				food: source_folder + "/img/" + source_folder + "/" + food + "/",
+				bottle: source_folder + "/img/" + source_folder + "/" + bottle + "/",
+				slider: source_folder + "/img/" + source_folder + "/" + slider + "/",
+				forest: source_folder + "/img/" + source_folder + "/" + forest + "/"
 				/* timer: source_folder + "/img/" + source_folder + "/" + timer + "/",
 				todo: source_folder + "/img/" + source_folder + "/" + todo + "/" */
 			},
@@ -80,6 +88,9 @@ let path = {
 				uber: source_folder + "/img/" + project_folder + "/" + uber + "/",
 				meta: source_folder + "/img/" + project_folder + "/" + meta + "/",
 				food: source_folder + "/img/" + project_folder + "/" + food + "/",
+				bottle: source_folder + "/img/" + project_folder + "/" + bottle + "/",
+				slider: source_folder + "/img/" + project_folder + "/" + slider + "/",
+				forest: source_folder + "/img/" + project_folder + "/" + forest + "/"
 				/* timer: source_folder + "/img/" + project_folder + "/" + timer + "/",
 				todo: source_folder + "/img/" + project_folder + "/" + todo + "/" */
 			}
@@ -91,7 +102,10 @@ let path = {
 			timer: source_folder + "/scss/" + timer + "/*.scss",
 			todo: source_folder + "/scss/" + todo + "/*.scss",
 			meta: source_folder + "/scss/" + meta + "/*.scss",
-			food: source_folder + "/scss/" + food + "/*.scss"
+			food: source_folder + "/scss/" + food + "/*.scss",
+			bottle: source_folder + "/scss/" + bottle + "/*.scss",
+			slider: source_folder + "/scss/" + slider + "/*.scss",
+			forest: source_folder + "/scss/" + forest + "/*.scss"
 		},
 		min: {
 			css: {
@@ -106,7 +120,8 @@ let path = {
 				timer: source_folder + "/js/" + timer + "*.min.js",
 				todo: source_folder + "/js/" + todo + "*.min.js",
 				meta: source_folder + "/js/" + meta + "*.min.js",
-				food: source_folder + "/js/" + food + "*.min.js"
+				food: source_folder + "/js/" + food + "*.min.js",
+				forest: source_folder + "/js/" + forest + "*.min.js"
 			}
 		},
 		css: {
@@ -122,7 +137,10 @@ let path = {
 			timer: project_folder + "/css/" + timer + "/",
 			todo: project_folder + "/css/" + todo + "/",
 			meta: project_folder + "/css/" + meta + "/",
-			food: project_folder + "/css/" + food + "/"
+			food: project_folder + "/css/" + food + "/",
+			bottle: project_folder + "/css/" + bottle + "/",
+			slider: project_folder + "/css/" + slider + "/",
+			forest: project_folder + "/css/" + forest + "/"
 		},
 		js: {
 			portfolio: project_folder + "/js/" + portfolio + "/",
@@ -130,7 +148,8 @@ let path = {
 			timer: project_folder + "/js/" + timer + "/",
 			todo: project_folder + "/js/" + todo + "/",
 			meta: project_folder + "/js/" + meta + "/",
-			food: project_folder + "/js/" + food + "/"
+			food: project_folder + "/js/" + food + "/",
+			forest: project_folder + "/js/" + forest + "/"
 		},
 		img: {
 			portfolio: project_folder + "/img/" + portfolio + "/",
@@ -138,7 +157,10 @@ let path = {
 			timer: project_folder + "/img/" + timer + "/",
 			todo: project_folder + "/img/" + todo + "/",
 			meta: project_folder + "/img/" + meta + "/",
-			food: project_folder + "/img/" + food + "/"
+			food: project_folder + "/img/" + food + "/",
+			bottle: project_folder + "/img/" + bottle + "/",
+			slider: project_folder + "/img/" + slider + "/",
+			forest: project_folder + "/img/" + forest + "/"
 		}
 	}
 };
@@ -223,6 +245,17 @@ function scriptsfood() {
 	.pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
 }
 
+function scriptsforest() {
+	return src([ // Берем файлы из источников
+		'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
+		path.src.js.forest // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+	])
+	.pipe(concat(forest + '.min.js')) // Конкатенируем в один файл
+	.pipe(uglify()) // Сжимаем JavaScript
+	.pipe(dest(project_folder + '/js/')) // Выгружаем готовый файл в папку назначения
+	.pipe(browserSync.stream()) // Триггерим Browsersync для обновления страницы
+}
+
 //обработка стилей
 function stylesportfolio() {
 	return src('src/' + preprocessor + '/' + portfolio + '/*.' + preprocessor + '') // Выбираем источник: "src/scss/main.scss"
@@ -281,6 +314,36 @@ function stylesfood() {
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
 	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
 	.pipe(dest(project_folder + '/css/' + food + '/')) // Выгрузим результат в папку "build/css/"
+	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+}
+
+function stylesbottle() {
+	return src('src/' + preprocessor + '/' + bottle + '/*.' + preprocessor + '') // Выбираем источник: "src/scss/main.scss"
+	.pipe(eval('sass')()) // Преобразуем значение переменной "preprocessor" в функцию
+	.pipe(concat(bottle + '.min.css')) // Конкатенируем в файл src.min.css
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
+	.pipe(dest(project_folder + '/css/' + bottle + '/')) // Выгрузим результат в папку "build/css/"
+	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+}
+
+function stylesslider() {
+	return src('src/' + preprocessor + '/' + slider + '/*.' + preprocessor + '') // Выбираем источник: "src/scss/main.scss"
+	.pipe(eval('sass')()) // Преобразуем значение переменной "preprocessor" в функцию
+	.pipe(concat(slider + '.min.css')) // Конкатенируем в файл src.min.css
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
+	.pipe(dest(project_folder + '/css/' + slider + '/')) // Выгрузим результат в папку "build/css/"
+	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
+}
+
+function stylesforest() {
+	return src('src/' + preprocessor + '/' + forest + '/*.' + preprocessor + '') // Выбираем источник: "src/scss/main.scss"
+	.pipe(eval('sass')()) // Преобразуем значение переменной "preprocessor" в функцию
+	.pipe(concat(forest + '.min.css')) // Конкатенируем в файл src.min.css
+	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
+	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
+	.pipe(dest(project_folder + '/css/' + forest + '/')) // Выгрузим результат в папку "build/css/"
 	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
@@ -373,6 +436,57 @@ async function imagesfood() {
 	)
 }
 
+async function imagesbottle() {
+	imagecomp(
+		path.src.img.src.bottle + '/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}', // Берём все изображения из папки источника
+		path.src.img.build.bottle, // Выгружаем оптимизированные изображения в папку назначения
+		{ compress_force: false, statistic: true, autoupdate: true }, false, // Настраиваем основные параметры
+		{ jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, // Сжимаем и оптимизируем изображеня
+		{ png: { engine: "pngquant", command: ["--quality=75-100", "-o"] } },
+		{ svg: { engine: "svgo", command: "--multipass" } },
+		{ gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] } },
+		function (err, completed) { // Обновляем страницу по завершению
+			if (completed === true) {
+				browserSync.reload()
+			}
+		}
+	)
+}
+
+async function imagesslider() {
+	imagecomp(
+		path.src.img.src.slider + '/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}', // Берём все изображения из папки источника
+		path.src.img.build.slider, // Выгружаем оптимизированные изображения в папку назначения
+		{ compress_force: false, statistic: true, autoupdate: true }, false, // Настраиваем основные параметры
+		{ jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, // Сжимаем и оптимизируем изображеня
+		{ png: { engine: "pngquant", command: ["--quality=75-100", "-o"] } },
+		{ svg: { engine: "svgo", command: "--multipass" } },
+		{ gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] } },
+		function (err, completed) { // Обновляем страницу по завершению
+			if (completed === true) {
+				browserSync.reload()
+			}
+		}
+	)
+}
+
+async function imagesforest() {
+	imagecomp(
+		path.src.img.src.forest + '/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}', // Берём все изображения из папки источника
+		path.src.img.build.forest, // Выгружаем оптимизированные изображения в папку назначения
+		{ compress_force: false, statistic: true, autoupdate: true }, false, // Настраиваем основные параметры
+		{ jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, // Сжимаем и оптимизируем изображеня
+		{ png: { engine: "pngquant", command: ["--quality=75-100", "-o"] } },
+		{ svg: { engine: "svgo", command: "--multipass" } },
+		{ gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] } },
+		function (err, completed) { // Обновляем страницу по завершению
+			if (completed === true) {
+				browserSync.reload()
+			}
+		}
+	)
+}
+
 /* async function imagestimer() {
 	imagecomp(
 		path.src.img.src.timer + '/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}', // Берём все изображения из папки источника
@@ -414,24 +528,32 @@ function buildcopy() {
 		path.src.icons.uber,
 		path.src.icons.todo,
 		path.src.icons.food,
-		//path.src.fonts.uber,
-		//path.src.fonts.meta,
+		path.src.fonts.uber,
+		path.src.fonts.meta,
+		path.src.fonts.forest,
 		path.src.min.css.portfolio + "/*",
 		path.src.min.css.uber,
 		path.src.min.css.timer + "/*",
 		path.src.min.css.todo + "/*",
 		path.src.min.css.meta + "/*",
 		path.src.min.css.food + "/*",
+		path.src.min.css.bottle + "/*",
+		path.src.min.css.slider + "/*",
+		path.src.min.css.forest + "/*",
 		path.src.min.js.portfolio + "/*",
 		path.src.min.js.uber + "/*",
 		path.src.min.js.timer + "/*",
 		path.src.min.js.todo + "/*",
 		path.src.min.js.meta + "/*",
 		path.src.min.js.food + "/*",
+		path.src.min.js.forest + "/*",
 		path.src.img.src.portfolio + "/**/*",
 		path.src.img.src.uber + "/**/*",
 		path.src.img.src.meta + "/**/*",
 		path.src.img.src.food + "/**/*",
+		path.src.img.src.bottle + "/**/*",
+		path.src.img.src.slider + "/**/*",
+		path.src.img.src.forest + "/**/*",
 		path.src.css.uber,
 		/* path.src.img.build.timer + "/*",
 		path.src.img.build.todo + "/*", */
@@ -469,6 +591,7 @@ function startwatch() {
 	watch([path.src.js.todo], scriptstodo);
 	watch([path.src.js.meta], scriptsmeta);
 	watch([path.src.js.food], scriptsfood);
+	watch([path.src.js.food], scriptsforest);
 
 	// Мониторим файлы препроцессора на изменения
 	watch(source_folder + '/**/' + preprocessor + '/**/*', stylesportfolio);
@@ -477,6 +600,9 @@ function startwatch() {
 	watch(source_folder + '/**/' + preprocessor + '/**/*', stylestodo);
 	watch(source_folder + '/**/' + preprocessor + '/**/*', stylesmeta);
 	watch(source_folder + '/**/' + preprocessor + '/**/*', stylesfood);
+	watch(source_folder + '/**/' + preprocessor + '/**/*', stylesbottle);
+	watch(source_folder + '/**/' + preprocessor + '/**/*', stylesslider);
+	watch(source_folder + '/**/' + preprocessor + '/**/*', stylesforest);
 
 	// Мониторим CSS файлы на изменения
 	//watch(source_folder + '/css/' + meta + '/**/*', fontsuber);
@@ -490,6 +616,9 @@ function startwatch() {
 	watch(path.src.img.src.uber, imagesuber);
 	watch(path.src.img.src.meta, imagesmeta);
 	watch(path.src.img.src.food, imagesfood);
+	watch(path.src.img.src.food, imagesbottle);
+	watch(path.src.img.src.food, imagesslider);
+	watch(path.src.img.src.food, imagesforest);
 	/* watch(path.src.img.src.timer, imagestimer);
 	watch(path.src.img.src.todo, imagestodo); */
 }
@@ -506,6 +635,7 @@ exports.scriptstimer = scriptstimer;
 exports.scriptstodo = scriptstodo;
 exports.scriptsmeta = scriptsmeta;
 exports.scriptsfood = scriptsfood;
+exports.scriptsforest = scriptsforest;
 /* exports.scriptsPortfolio = scripts(portfolio);
 exports.scriptsUber = scripts(uber);
 exports.scriptsTimer = scripts(timer);
@@ -519,6 +649,9 @@ exports.sctylestimer = stylestimer;
 exports.stylestodo = stylestodo;
 exports.stylesmeta = stylesmeta;
 exports.stylesfood = stylesfood;
+exports.stylesbottle = stylesbottle;
+exports.stylesbottle = stylesslider;
+exports.stylesforest = stylesforest;
 
 //exports.fontsuber = fontsuber;
 //exports.fontsmeta = fontsmeta;
@@ -528,6 +661,9 @@ exports.imagesportfolio = imagesportfolio;
 exports.imagesuber = imagesuber;
 exports.imagesmeta = imagesmeta;
 exports.imagesfood = imagesfood;
+exports.imagesbottle = imagesbottle;
+exports.imagesbottle = imagesslider;
+exports.imagesforest = imagesforest;
 /* exports.imagestimer = imagestimer;
 exports.imagestodo = imagestodo; */
 /* exports.imagesPortfolio = images(portfolio);
@@ -547,20 +683,20 @@ exports.buildcopy = buildcopy;
 
 // Создаем новый таск "build", который последовательно выполняет нужные операции
 exports.build = series(cleandist, html, 
-					   stylesportfolio, stylesuber, stylestimer, stylestodo, stylesmeta, stylesfood,
+					   stylesportfolio, stylesuber, stylestimer, stylestodo, stylesmeta, stylesfood, stylesbottle, stylesslider, stylesforest,
 					   //fontsuber, fontsmeta,
-					   scriptsportfolio, scriptsuber, scriptstimer, scriptstodo, scriptsmeta, scriptsfood,
-					   imagesportfolio, imagesuber, imagesmeta, imagesfood, /* imagestimer, imagestodo, */
+					   scriptsportfolio, scriptsuber, scriptstimer, scriptstodo, scriptsmeta, scriptsfood, scriptsforest,
+					   imagesportfolio, imagesuber, imagesmeta, imagesfood, imagesbottle, imagesslider, imagesforest, /* imagestimer, imagestodo, */
 					   buildcopy);
 
 // Экспортируем дефолтный таск с нужным набором функций
 exports.default = series( 
 	parallel(
 	  html,
-	  stylesportfolio, stylesuber, stylestimer, stylestodo, stylesmeta, stylesfood,
+	  stylesportfolio, stylesuber, stylestimer, stylestodo, stylesmeta, stylesfood, stylesbottle, stylesslider, stylesforest,
 	  //fontsuber, fontsmeta,
-	  scriptsportfolio, scriptsuber, scriptstimer, scriptstodo, scriptsmeta, scriptsfood,
-	  imagesportfolio, imagesuber, imagesmeta, imagesfood, /* imagestimer, imagestodo, */
+	  scriptsportfolio, scriptsuber, scriptstimer, scriptstodo, scriptsmeta, scriptsfood, scriptsforest,
+	  imagesportfolio, imagesuber, imagesmeta, imagesfood, imagesbottle, imagesslider, imagesforest /* imagestimer, imagestodo, */
 	), 
 	parallel(
 	  browsersync,
