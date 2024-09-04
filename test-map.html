@@ -1,0 +1,233 @@
+
+<!--Для добавления мобильной версии картинки добавляем вторым параметром true-->
+<!--Например +picture('image.jpg', 'true')-->
+<!--Миксин будет искать картинку с названием image-mob.jpg (тоесть вторая картинка должна иметь такое же название как и основная, только с добавлением -mob.png/jpg и тд)--><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>test-map</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link href="https://vitejs.dev/logo.svg" rel="icon" type="image/x-icon">
+    <!--script(src="https://api-maps.yandex.ru/2.1/?apikey=9d11d349-5079-49f1-aa1a-200147857ca59d11d349-5079-49f1-aa1a-200147857ca5&lang=ru_RU")-->
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=9d11d349-5079-49f1-aa1a-200147857ca59d11d349-5079-49f1-aa1a-200147857ca5" type="text/javascript"></script>
+    <script src="mapbasics.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" crossorigin src="scripts/scripts.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="modal-block">
+      </div>
+      <header class="header">
+        <div class="inner">
+          <p>Header</p>
+        </div>
+      </header>
+      <main>
+        <section class="map"> 
+          <div class="map-wrapper"> 
+            <div class="map-col map-wrapper__marks">
+              <div class="map-wrapper__filter">
+                <div class="select-wrapper"> 
+                  <div class="select">
+                    <select class="select__select" width="100%">
+                      <option value="Moscow">Moscow</option>
+                      <option value="Voroneshz">Voroneshz</option>
+                      <option value="Novosibirsk">Novosibirsk</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="marks-list map-wrapper__marks-list" data-scroll="">
+                <div class="mark marks-list__item" data-cord="55.69289651935801 37.734255932588425" data-mark="1">
+                  <div class="mark-title">RIALTO</div>
+                  <div class="mark-street">г. Минск, ул. Сурганова 61А, БЦ ЗЕБРА</div>
+                  <div class="mark-phone">
+                    <div class="mark-phone__link"><a href="tel:375296170973">+375 29 617-09-73</a></div>
+                    <div class="mark-phone__link"><a href="tel:375296170973">+375 29 617-09-73</a></div>
+                  </div>
+                  <div class="mark-contact">
+                    <div class="mark-time mark-contact__time">
+                      <div class="mark-time-col">
+                        <div class="mark-contact__time-top">ПНД — ПТ</div>
+                        <div class="mark-contact__time-bot">10–19</div>
+                      </div>
+                      <div class="mark-time-col">
+                        <div class="mark-contact__time-top">СБ</div>
+                        <div class="mark-contact__time-bot">11–18</div>
+                      </div>
+                    </div><a class="mark-site mark-contact__site" href="#">
+                      <div class="mark-site__icon">
+                        <svg class="site-link-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4441 9.22313L10.3341 8.11313L12.5541 5.89313C14.0867 4.36054 16.5715 4.36054 18.1041 5.89313C19.6367 7.42572 19.6367 9.91054 18.1041 11.4431L15.8841 13.6631L14.7741 12.5531L16.9941 10.3331C17.9137 9.41358 17.9137 7.92269 16.9941 7.00313C16.0746 6.08358 14.5837 6.08358 13.6641 7.00313L11.4441 9.22313ZM12.5541 14.7731L13.6641 15.8831L11.4441 18.1031C9.91155 19.6357 7.42673 19.6357 5.89414 18.1031C4.36155 16.5705 4.36155 14.0857 5.89414 12.5531L8.11414 10.3331L9.22414 11.4431L7.00414 13.6631C6.08459 14.5827 6.08459 16.0736 7.00414 16.9931C7.9237 17.9127 9.41459 17.9127 10.3341 16.9931L12.5541 14.7731ZM8.66913 14.2181L9.77913 15.3281L15.3291 9.77813L14.2191 8.66813L8.66913 14.2181Z" fill="#02343B"></path>
+                        </svg>
+                      </div>
+                      <div class="mark-site__text">сайт</div></a>
+                  </div>
+                  <div class="mark-salons"> 
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Официальный дистрибьютор</div>
+                    </div>
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Есть экспозиция</div>
+                    </div>
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Салон, где можно сделать заказ</div>
+                    </div>
+                  </div>
+                  <div class="mark-underline"></div>
+                  <div class="mark-places"> 
+                    <ul class="mark-places__list">
+                      <li class="mark-places__list-item">Салон</li>
+                      <li class="mark-places__list-item">Шоурум</li>
+                      <li class="mark-places__list-item">Магазин</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mark marks-list__item" data-cord="55.79289651935801 37.834255932588425" data-mark="2">
+                  <div class="mark-title">Ideal Standard International</div>
+                  <div class="mark-street">г. Москва, Нижняя Сыромятническая 10. Артплей строение 7 этаж 1</div>
+                  <div class="mark-phone">
+                    <div class="mark-phone__link"><a href="tel:375296170973">8 (495) 640-09-20</a></div>
+                    <div class="mark-phone__link"><a class="mark-phone__link--dop" href="#">8 (926) 640-01-91</a><span> — факс</span></div>
+                    <div class="mark-phone__link"><a class="mark-phone__link--dop" href="">8 (926) 640-01-91 </a><span> — tg, wh, viber</span></div>
+                  </div>
+                  <div class="mark-contact">
+                    <div class="mark-time mark-contact__time">
+                      <div class="mark-time-col">
+                        <div class="mark-contact__time-top">ПНД — ПТ</div>
+                        <div class="mark-contact__time-bot">10–19</div>
+                      </div>
+                      <div class="mark-time-col">
+                        <div class="mark-contact__time-top">СБ</div>
+                        <div class="mark-contact__time-bot">11–18</div>
+                      </div>
+                    </div><a class="mark-site mark-contact__site" href="#">
+                      <div class="mark-site__icon">
+                        <svg class="site-link-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4441 9.22313L10.3341 8.11313L12.5541 5.89313C14.0867 4.36054 16.5715 4.36054 18.1041 5.89313C19.6367 7.42572 19.6367 9.91054 18.1041 11.4431L15.8841 13.6631L14.7741 12.5531L16.9941 10.3331C17.9137 9.41358 17.9137 7.92269 16.9941 7.00313C16.0746 6.08358 14.5837 6.08358 13.6641 7.00313L11.4441 9.22313ZM12.5541 14.7731L13.6641 15.8831L11.4441 18.1031C9.91155 19.6357 7.42673 19.6357 5.89414 18.1031C4.36155 16.5705 4.36155 14.0857 5.89414 12.5531L8.11414 10.3331L9.22414 11.4431L7.00414 13.6631C6.08459 14.5827 6.08459 16.0736 7.00414 16.9931C7.9237 17.9127 9.41459 17.9127 10.3341 16.9931L12.5541 14.7731ZM8.66913 14.2181L9.77913 15.3281L15.3291 9.77813L14.2191 8.66813L8.66913 14.2181Z" fill="#02343B"></path>
+                        </svg>
+                      </div>
+                      <div class="mark-site__text">сайт</div></a>
+                  </div>
+                  <div class="mark-salons"> 
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Официальный дистрибьютор</div>
+                    </div>
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Есть экспозиция</div>
+                    </div>
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Салон, где можно сделать заказ</div>
+                    </div>
+                  </div>
+                  <div class="mark-underline"></div>
+                  <div class="mark-places"> 
+                    <ul class="mark-places__list">
+                      <li class="mark-places__list-item">Салон</li>
+                      <li class="mark-places__list-item">Шоурум</li>
+                      <li class="mark-places__list-item">Магазин</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mark marks-list__item" data-cord="55.99289651935801 37.434255932588425" data-mark="3">
+                  <div class="mark-title">RIALTO</div>
+                  <div class="mark-street">г. Минск, ул. Сурганова 61А, БЦ ЗЕБРА</div>
+                  <div class="mark-phone">
+                    <div class="mark-phone__link"><a href="tel:375296170973">+375 29 617-09-73</a></div>
+                    <div class="mark-phone__link"><a href="tel:375296170973">+375 29 617-09-73</a></div>
+                  </div>
+                  <div class="mark-contact">
+                    <div class="mark-time mark-contact__time">
+                      <div class="mark-time-col">
+                        <div class="mark-contact__time-top">ПНД — ПТ</div>
+                        <div class="mark-contact__time-bot">10–19</div>
+                      </div>
+                      <div class="mark-time-col">
+                        <div class="mark-contact__time-top">СБ</div>
+                        <div class="mark-contact__time-bot">11–18</div>
+                      </div>
+                    </div><a class="mark-site mark-contact__site" href="#">
+                      <div class="mark-site__icon">
+                        <svg class="site-link-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4441 9.22313L10.3341 8.11313L12.5541 5.89313C14.0867 4.36054 16.5715 4.36054 18.1041 5.89313C19.6367 7.42572 19.6367 9.91054 18.1041 11.4431L15.8841 13.6631L14.7741 12.5531L16.9941 10.3331C17.9137 9.41358 17.9137 7.92269 16.9941 7.00313C16.0746 6.08358 14.5837 6.08358 13.6641 7.00313L11.4441 9.22313ZM12.5541 14.7731L13.6641 15.8831L11.4441 18.1031C9.91155 19.6357 7.42673 19.6357 5.89414 18.1031C4.36155 16.5705 4.36155 14.0857 5.89414 12.5531L8.11414 10.3331L9.22414 11.4431L7.00414 13.6631C6.08459 14.5827 6.08459 16.0736 7.00414 16.9931C7.9237 17.9127 9.41459 17.9127 10.3341 16.9931L12.5541 14.7731ZM8.66913 14.2181L9.77913 15.3281L15.3291 9.77813L14.2191 8.66813L8.66913 14.2181Z" fill="#02343B"></path>
+                        </svg>
+                      </div>
+                      <div class="mark-site__text">сайт</div></a>
+                  </div>
+                  <div class="mark-salons"> 
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Официальный дистрибьютор</div>
+                    </div>
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Есть экспозиция</div>
+                    </div>
+                    <div class="mark-salons__item">
+                      <div class="mark-salons__item-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATXSURBVHgBxVhdaBxVFP7unQ3WBMOKSWmySbrFKkYhbkhqQ1rN+qAEWzF9EJU8JHkQUxCNQuyLkFSsqIjEH7TVl/VBEKSpFRX8gW41Da1J242gKYh2Y5K2NguukQbb7M7tOXd/utvuz8xsk36wuzNz7+x8893vnHvPFXCC1ja/NIVPSdEBBZ8Qwk1X3cnWqALCgAoLUx02jVgQExMh2ISw3NPnd0vXpeeVQi8R8cIOBMIirnbHTTOI0NGwtVssQLa2D1HXAVxRxRmIIJQKmJPju4t3LQRfm1eWGQd4uHA9QQTN5fiDhdST+RqM+7b0SJdx8rqTYih49X+33N+Vr4uBPKSUiQAdrsHKYY0Q6klV1xDG/OwUihEz6C0U1GdYJQiFrlzksj3GnmKJSzW5fUTNWLw503NZHpNl8tANIMVwCxcFWQbSQ5lMCV24QaChWydq64U6MxtMniOZFkgtJbxwgMryCnjWVqGyohzHfp1GCaAhLduAUDDq4jNDSr9ySKrRux57Bwfgqa7S5/MLEfS/OYLpmRk4AM8uAyYwrD2mDAzBIVKkvv/5OPYHf9LHe18agGMI0cM/LvjafU6HcPM9jWlSO98a0dfq6JyvN65vINX+gm1Q8kXrVr+ULuVHiZgOXxm2Y7+d0r+e6mo4hUTcZ6CmYRetFu6ycyP7ynfHRvQ/th0/TJzAvoNf4eLycoIkeavK7UaHrwnzkQjq1lZr39kBLZsuCtm6hROqpfnwaqOzp3Z98FHOvi/3dqP3kU59bDsgaJI3RG3D67A4J+7fM6xJcUoYPTyG9z4fTSulfUXE/zxzVp+Hfv+D2mJYXFrS6nY0N2E0OJbuXwycLixl+pTRc6n00KYWfDiYiMTu4dfIZ9NYvLCEd4k4g9u4j6f6NizOXLDyOLeERfCDGJXl5XnbGLcUaK+sqIBVsMf+gQXVOKt/+car2sycHtgvga+/o6FKKMCKMAFWK/ECFejd9jA2392o1Z47vwD/sy/CIqKGqKnvR6KYKAj2Bj/0gXub0HznRv2wm8rK8OPUL7qdvZUZfa883Ye+bZ36RZgU57lI9F9YAUXlKSFa2g9QurA1ebMKjOce34E5IrMn8GlaOVaKrzd6GxD45ltqX6A8Zy/R0nrwoCE9dTU0op12bmRl+PMfRdxg9xOk5qV0Yn2m61H6bKcA+ViraVWlTAiofdKEYbvmS2EuOXQpBRmsVKkwRSyolz2ypf007NaKSQTff1v7iNMIBwgHgU2jZ4Hq1rA6fmSDXigKT/2t9O2HA6QCoo2C4XZPrW2jX0tMvYCzs6HkQpGr7OXTKGFZzcPJATB/PqKzvTNSpFY8UW8mltbnwv/TsvZmp6oxOBhYJatTTi5QdnhHnRj/Qh9nNdCELrACBa4FpLyVOs+aklQsvoN+olhlEKmoHsIMZBe85+aial3933YTbsnEIJ/CyfGjyEuMQRFB5GZWixxtE/SpySPXVP459y40uRrvFN3EM8KK7F/w8EmpdsYnxgO52otuQwlDHhIOk29eUrSO1H4usA1lceNu67BSZk+pBFklTgnm5Nhwsb42tjrbvKDCWAgM2SVI2TwshPzEjLlGuMq2co91YpnYRLVoXPkFbw5DeLkWJMLuBAlONypK/xxStDkMSYuEybEgbOIyrmQFhy+av5YAAAAASUVORK5CYII=" alt="mark"></div>
+                      <div class="mark-salons__item-text">Салон, где можно сделать заказ</div>
+                    </div>
+                  </div>
+                  <div class="mark-underline"></div>
+                  <div class="mark-places"> 
+                    <ul class="mark-places__list">
+                      <li class="mark-places__list-item">Салон</li>
+                      <li class="mark-places__list-item">Шоурум</li>
+                      <li class="mark-places__list-item">Магазин</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="map-col map-wrapper__map">
+              <div class="mymap" id="map"></div>
+            </div>
+          </div>
+          <div class="map-others"><input type="button" id="destroyButton" value="Удалить карту"/>
+            <ul class="coord-list"> 
+              <li class="coord-item"> 
+                <div class="coord-item__content">55.753544</div>
+                <div class="coord-item__content">37.621202</div>
+                <div class="coord-item__title">Красная площадь</div>
+              </li>
+              <li class="coord-item">
+                <div class="coord-item__content">55.74368033474093</div>
+                <div class="coord-item__content">37.62523116916673</div>
+                <div class="coord-item__title">Третьяковка</div>
+              </li>
+              <li class="coord-item">
+                <div class="coord-item__content">55.75408033290144</div>
+                <div class="coord-item__content">37.62385787815111</div>
+                <div class="coord-item__title">Храм</div>
+              </li>
+            </ul>
+            <div class="mark-wrapper"> 
+              <div class="mark-title">RIALTO</div>
+              <div class="mark-street">г. Минск, ул. Сурганова 61А, БЦ ЗЕБРА</div>
+              <div class="mark-phone">
+                <div class="mark-phone__link"><a href="tel:375296170973">+375 29 617-09-73</a></div>
+                <div class="mark-phone__link"><a href="tel:375296170973">+375 29 617-09-73</a></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="footer">
+        <div class="inner">
+          <p> Footer</p>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

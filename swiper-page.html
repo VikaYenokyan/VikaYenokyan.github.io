@@ -1,0 +1,385 @@
+
+<!--Для добавления мобильной версии картинки добавляем вторым параметром true-->
+<!--Например +picture('image.jpg', 'true')-->
+<!--Миксин будет искать картинку с названием image-mob.jpg (тоесть вторая картинка должна иметь такое же название как и основная, только с добавлением -mob.png/jpg и тд)--><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>swiper-page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link href="https://vitejs.dev/logo.svg" rel="icon" type="image/x-icon">
+    <!--script(src="https://api-maps.yandex.ru/2.1/?apikey=9d11d349-5079-49f1-aa1a-200147857ca59d11d349-5079-49f1-aa1a-200147857ca5&lang=ru_RU")-->
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=9d11d349-5079-49f1-aa1a-200147857ca59d11d349-5079-49f1-aa1a-200147857ca5" type="text/javascript"></script>
+    <script src="mapbasics.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" crossorigin src="scripts/scripts.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="modal-block">
+      </div>
+      <header class="header">
+        <div class="inner">
+          <p>Header</p>
+        </div>
+      </header>
+      <main>
+        <section class="about-history container"> 
+          <h3 class="about-history__title title-60">История </h3>
+          <div class="about-history__wrapper"> 
+            <div class="about-history__btns"> 
+              <div class="about-history__btn text-32 active" data-history-btn>1991</div>
+              <div class="about-history__btn text-32" data-history-btn>2001</div>
+              <div class="about-history__btn text-32" data-history-btn>2007</div>
+              <div class="about-history__btn text-32" data-history-btn>2010</div>
+              <div class="about-history__btn text-32" data-history-btn>2011</div>
+              <div class="about-history__btn text-32" data-history-btn>2014</div>
+              <div class="about-history__btn text-32" data-history-btn>2015</div>
+              <div class="about-history__btn text-32" data-history-btn>2016</div>
+              <div class="about-history__btn text-32" data-history-btn>2017</div>
+              <div class="about-history__btn text-32" data-history-btn>2020</div>
+              <div class="about-history__btn text-32" data-history-btn>2022</div>
+            </div>
+          </div>
+          <div class="about-history__sliders"> 
+            <div class="about-history__col years"> 
+              <div class="about-history__years"> 
+                <div class="swiper" data-slider-id="history-years" data-slider-prev="1" data-slider-next="2"> 
+                  <div class="swiper-wrapper"> 
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">1991</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2001</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2007</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2010</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2011</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2014</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2015</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2016</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2017</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2020</div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__years-slide title-150">2022</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="about-history__controls">
+                <div class="slider-buttons slider-buttons_gradient" data-slider-buttons="">
+                  <div class="slider-buttons__item">
+                    <button class="slider-buttons__button" data-slider-button="1">
+                      <div class="hover-border" data-block-border="">
+                        <div class="hover-content"> 
+                          <svg class="slider-buttons__svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.5 21L5.5 12L14.5 3" stroke="#0B1226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="slider-buttons__item"> 
+                    <button class="slider-buttons__button" data-slider-button="2">
+                      <div class="hover-border" data-block-border="">
+                        <div class="hover-content"> 
+                          <svg class="slider-buttons__svg right" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.5 21L5.5 12L14.5 3" stroke="#0B1226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="about-history__col images">
+              <div class="about-history__images">
+                <div class="swiper" data-slider-id="history-images" data-slider-prev="1" data-slider-next="2"> 
+                  <div class="swiper-wrapper"> 
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide1.webp 1x" alt="about-history-slide1.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide1.jpg 1x" alt="about-history-slide1.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide1.png 1x" alt="about-history-slide1.png"/><img class="picture__img lazyload" data-src="images/about-history-slide1.png" alt="about-history-slide1.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide2.webp 1x" alt="about-history-slide2.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide2.jpg 1x" alt="about-history-slide2.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide2.png 1x" alt="about-history-slide2.png"/><img class="picture__img lazyload" data-src="images/about-history-slide2.png" alt="about-history-slide2.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide3.webp 1x" alt="about-history-slide3.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide3.jpg 1x" alt="about-history-slide3.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide3.png 1x" alt="about-history-slide3.png"/><img class="picture__img lazyload" data-src="images/about-history-slide3.png" alt="about-history-slide3.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide4.webp 1x" alt="about-history-slide4.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide4.jpg 1x" alt="about-history-slide4.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide4.png 1x" alt="about-history-slide4.png"/><img class="picture__img lazyload" data-src="images/about-history-slide4.png" alt="about-history-slide4.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide5.webp 1x" alt="about-history-slide5.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide5.jpg 1x" alt="about-history-slide5.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide5.png 1x" alt="about-history-slide5.png"/><img class="picture__img lazyload" data-src="images/about-history-slide5.png" alt="about-history-slide5.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide6.webp 1x" alt="about-history-slide6.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide6.jpg 1x" alt="about-history-slide6.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide6.png 1x" alt="about-history-slide6.png"/><img class="picture__img lazyload" data-src="images/about-history-slide6.png" alt="about-history-slide6.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide7.webp 1x" alt="about-history-slide7.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide7.jpg 1x" alt="about-history-slide7.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide7.png 1x" alt="about-history-slide7.png"/><img class="picture__img lazyload" data-src="images/about-history-slide7.png" alt="about-history-slide7.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide8.webp 1x" alt="about-history-slide8.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide8.jpg 1x" alt="about-history-slide8.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide8.png 1x" alt="about-history-slide8.png"/><img class="picture__img lazyload" data-src="images/about-history-slide8.png" alt="about-history-slide8.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide9.webp 1x" alt="about-history-slide9.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide9.jpg 1x" alt="about-history-slide9.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide9.png 1x" alt="about-history-slide9.png"/><img class="picture__img lazyload" data-src="images/about-history-slide9.png" alt="about-history-slide9.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide10.webp 1x" alt="about-history-slide10.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide10.jpg 1x" alt="about-history-slide10.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide10.png 1x" alt="about-history-slide10.png"/><img class="picture__img lazyload" data-src="images/about-history-slide10.png" alt="about-history-slide10.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__images-slide">
+                        <picture class="picture">
+                          <source class="lazyload" type="image/webp" srcset="webp/about-history-slide11.webp 1x" alt="about-history-slide11.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide11.jpg 1x" alt="about-history-slide11.png"/>
+                          <source class="lazyload" srcset="images/about-history-slide11.png 1x" alt="about-history-slide11.png"/><img class="picture__img lazyload" data-src="images/about-history-slide11.png" alt="about-history-slide11.png"/>
+                        </picture>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="about-history__col texts">
+              <div class="about-history__texts" data-history-texts> 
+                <div class="swiper" data-slider-id="history-texts" data-slider-prev="1" data-slider-next="2"> 
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Основание Hangzhou Specialized Pump Factory</p>
+                        <p class="about-history__texts-paragraph text-20">В августе 1991 года было основано предприятие Hangzhou Specialized Pump Factory. Чуть позже на нём было успешно запущено первое в Китае производство центробежных насосов из нержавеющей стали, изготовленных методом штамповки и сварки.</p>
+                        <p class="about-history__texts-paragraph text-20"></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Развитие международных поставок</p>
+                        <p class="about-history__texts-paragraph text-20">Поставив целью стать производителем насосного оборудования №1 в Китае, компания реализовала несколько крупных национальных проектов, а также начинала активно развивать зарубежные поставки.</p>
+                        <p class="about-history__texts-paragraph text-20"></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">National Torch Project</p>
+                        <p class="about-history__texts-paragraph text-20">Компания приняла участие в программе по развитию высокотехнологичных отраслей промышленности в Китае National Torch Project, благодаря чему стала одной из самых влиятельных компании на рынке промышленного оборудования. </p>
+                        <p class="about-history__texts-paragraph text-20"></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Регистрация на Шэньчжэньской фондовой бирже</p>
+                        <p class="about-history__texts-paragraph text-20">9 декабря 2010 компания была успешно зарегистрирована на Шэньчжэньской фондовой бирже, Shenzhen Stock Exchange.</p>
+                        <p class="about-history__texts-paragraph text-20"></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32"></p>
+                        <p class="about-history__texts-paragraph text-20">Официально переименованная в Nanfang Pump Industry Co., Ltd, компания вышла на рынок промышленных насосов крупного и среднего размера. </p>
+                        <p class="about-history__texts-paragraph text-20">В этом же году положено начало совместного сотрудничества с «TSURUMI Japan», а также создан научно-исследовательский центр в объединении с Чжэцзянским университетом. </p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Nanfeng Foundary</p>
+                        <p class="about-history__texts-paragraph text-20">Выручка от продаж достигла 1 миллиарда юаней.</p>
+                        <p class="about-history__texts-paragraph text-20">Компания запустила собственное крупномасштабное литейное производство Nanfeng Foundary и создала базу по производству крупных промышленных насосов для различных применений в г. Чанша. </p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Официальное торговое представительство компании CNP в России</p>
+                        <p class="about-history__texts-paragraph text-20">Создано официальное торгового представительство компании CNP в России. </p>
+                        <p class="about-history__texts-paragraph text-20">Компания начала активное развитие в сфере защиты окружающей среды, сосредоточившись на повышении энергоэффективности производимого оборудования. Получен сертификат национального технологического центра.</p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Испытания и сертификация новых электродвигателей</p>
+                        <p class="about-history__texts-paragraph text-20">Компания была переименована в Nanfang Zhongjin Environment Co., Ltd. Высокоэффективные электродвигатели собственной разработки успешно прошли испытания и сертификацию. </p>
+                        <p class="about-history__texts-paragraph text-20"></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Выпущен новый насос</p>
+                        <p class="about-history__texts-paragraph text-20">Объем продаж на рынке насосного оборудования достиг 2,3 млрд юайней.</p>
+                        <p class="about-history__texts-paragraph text-20">Выпущен вертикальный многоступенчатый центробежный насос нового поколения CDM(F), показатели энергоэффективности которого соответствуют долгосрочным целевым требованиям ЕС (MEI≥0.7).</p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Автоматизированное производство Industry 4.0</p>
+                        <p class="about-history__texts-paragraph text-20">Открыто автоматизированное производство по принципам Industry 4.0.</p>
+                        <p class="about-history__texts-paragraph text-20">Выручка от продаж превысила 4 млрд юаней, а общее количество ежегодно производимых насосных агрегатов перешагнуло за отметку в 800 000 штук. </p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide"> 
+                      <div class="about-history__texts-slide"> 
+                        <p class="about-history__texts-title title-32">Обширная дилерская сеть в России</p>
+                        <p class="about-history__texts-paragraph text-20">Компания становится победителем в номинации &quot;China Machinery Industry Top 100&quot; в течение пяти лет подряд.</p>
+                        <p class="about-history__texts-paragraph text-20">Российское представительство выходит в лидеры среди зарубежных дочерних структур компании по обороту продаж. На территории России развёрнута обширная дилерская сеть, открыты склады и сертифицированные сервисные центры по всей стране.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="about-next container"> 
+          <div class="about-next__inner section-line">
+            <p class="about__minititle text-20 fw-600">Далее </p>
+            <div class="about-next__links">
+              <div class="hover-border" data-block-border="">
+                <div class="hover-content"> <a class="next-page" href="#">
+                    <div class="next-page__inner">
+                      <p class="next-page__title title-32">Производство</p>
+                      <div class="next-page__icon">
+                        <svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect class="white-rect" width="40" height="40" rx="12" fill="#0070B8"></rect>
+                          <rect class="gradient-rect" width="40" height="40" rx="12" fill="url(#paint0_linear_1289_4207)"></rect>
+                          <path d="M22.025 14.9417L27.0833 20M27.0833 20L22.025 25.0583M27.0833 20L12.5 20" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <defs>
+                            <lineargradient id="paint0_linear_1289_4207" x1="20" y1="0" x2="20" y2="40" gradientunits="userSpaceOnUse">
+                              <stop stop-color="#0070B8"></stop>
+                              <stop offset="1" stop-color="#8ECCEF"></stop>
+                            </lineargradient>
+                          </defs>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+              </div>
+              <div class="hover-border" data-block-border="">
+                <div class="hover-content"> <a class="next-page" href="#">
+                    <div class="next-page__inner">
+                      <p class="next-page__title title-32">Карьера</p>
+                      <div class="next-page__icon">
+                        <svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect class="white-rect" width="40" height="40" rx="12" fill="#0070B8"></rect>
+                          <rect class="gradient-rect" width="40" height="40" rx="12" fill="url(#paint0_linear_1289_4207)"></rect>
+                          <path d="M22.025 14.9417L27.0833 20M27.0833 20L22.025 25.0583M27.0833 20L12.5 20" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <defs>
+                            <lineargradient id="paint0_linear_1289_4207" x1="20" y1="0" x2="20" y2="40" gradientunits="userSpaceOnUse">
+                              <stop stop-color="#0070B8"></stop>
+                              <stop offset="1" stop-color="#8ECCEF"></stop>
+                            </lineargradient>
+                          </defs>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+              </div>
+              <div class="hover-border" data-block-border="">
+                <div class="hover-content"> <a class="next-page" href="#">
+                    <div class="next-page__inner">
+                      <p class="next-page__title title-32">Наша команда</p>
+                      <div class="next-page__icon">
+                        <svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect class="white-rect" width="40" height="40" rx="12" fill="#0070B8"></rect>
+                          <rect class="gradient-rect" width="40" height="40" rx="12" fill="url(#paint0_linear_1289_4207)"></rect>
+                          <path d="M22.025 14.9417L27.0833 20M27.0833 20L22.025 25.0583M27.0833 20L12.5 20" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <defs>
+                            <lineargradient id="paint0_linear_1289_4207" x1="20" y1="0" x2="20" y2="40" gradientunits="userSpaceOnUse">
+                              <stop stop-color="#0070B8"></stop>
+                              <stop offset="1" stop-color="#8ECCEF"></stop>
+                            </lineargradient>
+                          </defs>
+                        </svg>
+                      </div>
+                    </div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div class="footer">
+        <div class="inner">
+          <p> Footer</p>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

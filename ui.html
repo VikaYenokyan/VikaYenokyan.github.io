@@ -1,0 +1,94 @@
+
+<!--Для добавления мобильной версии картинки добавляем вторым параметром true-->
+<!--Например +picture('image.jpg', 'true')-->
+<!--Миксин будет искать картинку с названием image-mob.jpg (тоесть вторая картинка должна иметь такое же название как и основная, только с добавлением -mob.png/jpg и тд)--><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>ui</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link href="https://vitejs.dev/logo.svg" rel="icon" type="image/x-icon">
+    <!--script(src="https://api-maps.yandex.ru/2.1/?apikey=9d11d349-5079-49f1-aa1a-200147857ca59d11d349-5079-49f1-aa1a-200147857ca5&lang=ru_RU")-->
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=9d11d349-5079-49f1-aa1a-200147857ca59d11d349-5079-49f1-aa1a-200147857ca5" type="text/javascript"></script>
+    <script src="mapbasics.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" crossorigin src="scripts/scripts.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="modal-block">
+      </div>
+      <header class="header">
+        <div class="inner">
+          <p>Header</p>
+        </div>
+      </header>
+      <main>
+        <div class="inner">
+          <h1 class="title-64">H1 класс title-64</h1>
+          <h2 class="title-36">H2 класс title-36</h2><br><br>
+          <p class="text-18"> text-18</p>
+          <p class="text-22"> text-22</p><br><br>
+          <div class="select select-wrapper">
+            <div class="select__button">
+              <input type="text" readonly="readonly" required="required" placeholder="Пол"/>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 17L11 22M11 22L6 17M11 22L11 10C11 8.93913 11.4214 7.92172 12.1716 7.17157C12.9217 6.42143 13.9391 6 15 6L22 6" stroke="#5C5772" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="select__list">
+              <ul>
+                <li>
+                  <p>Мужской</p>
+                </li>
+                <li>
+                  <p>Женский</p>
+                </li>
+              </ul>
+            </div>
+          </div><br><br><a class="button" href="#" target="blank">
+            <div class="button__text">Кнопка</div>
+            <div class="button__icon">
+              <svg class="button__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.025 4.94168L17.0833 10M17.0833 10L12.025 15.0583M17.0833 10L2.5 10" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div></a><br><br>
+          <div class="checkbox">
+            <label class="container">
+              <input type="checkbox"/><span class="checkmark">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L14.6093 13.4688C12.4732 16.0322 11.4051 17.3139 10 17.3139C8.59488 17.3139 7.52681 16.0322 5.39067 13.4688L4 11.8" stroke="#62215B" stroke-width="2" stroke-linecap="round"></path>
+                </svg></span>
+              <p>текст</p>
+            </label>
+          </div><br><br>
+          <div class="input-wrapper textarea-wrapper" data-input-parent="">
+            <div class="input-wrapper__placeholder">Имя</div>
+            <textarea class="textarea" data-input="" placeholder="Имя" name="name"></textarea>
+            <svg class="input-wrapper-svg textarea__svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48" fill="none">
+              <path d="M18.15 18.15L29.85 29.85" stroke="#A5B7B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M18.15 29.85L29.85 18.15" stroke="#A5B7B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div><br><br>
+          <picture class="picture">
+            <source class="lazyload" type="image/webp" srcset="webp/test.webp 1x" alt="test.jpg"/>
+            <source class="lazyload" srcset="images/test.jpg 1x" alt="test.jpg"/>
+            <source class="lazyload" srcset="images/test.png 1x" alt="test.jpg"/>
+            <source class="lazyload" type="image/webp" srcset="images/test-mob.webp 1x" alt="test.jpg" media="(max-width: 768px)"/>
+            <source class="lazyload" srcset="images/test-mob.jpg 1x" alt="test.jpg" media="(max-width: 768px)"/>
+            <source class="lazyload" srcset="images/test-mob.png 1x" alt="test.jpg" media="(max-width: 768px)"/><img class="picture__img lazyload" data-src="images/test.jpg" alt="test.jpg"/>
+          </picture>
+        </div>
+      </main>
+      <div class="footer">
+        <div class="inner">
+          <p> Footer</p>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
