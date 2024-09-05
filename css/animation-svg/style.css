@@ -1,0 +1,37 @@
+.svg-wrapper {
+    position: relative;
+    height: 100vh;
+    background-color: brown;
+}
+
+.svg-container {
+    position: absolute;
+    display: flex;
+    gap: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    h2 {
+        color: #FFF;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(-3px);
+    }
+}
+
+#hand1,
+#hand2 {
+    animation: move 1.5s infinite;
+}
