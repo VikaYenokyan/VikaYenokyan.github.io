@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>todo</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta name="theme-color" content="#4285f4">
+    <link href="https://vitejs.dev/logo.svg" rel="icon" type="image/x-icon">
+    <script type="module" crossorigin src="scripts/index.js?1734292047721"></script>
+    <link rel="stylesheet" crossorigin href="styles/index.css">
+  </head>
+  <body data-barba="wrapper">
+    <header class="header"></header>
+    <main class="todos" data-barba="container" data-barba-namespace="todo">
+      <div class="todo">
+        <h1 class="todo__title">todos</h1>
+        <section class="todo__list">
+          <form class="todo__form">
+            <input class="todo__input" type="text" placeholder="What needs to be done?"/>
+            <input class="todo__submit task__add" type="image" src="images/add.svg"/>
+          </form>
+          <div class="todo__tasks"></div>
+        </section>
+        <button class="todo-theme"> <img src="images/moon.svg"/></button>
+        <h2 class="todo__index">Количество посещений на сайте&nbsp;<span class="todo__counter">0</span></h2>
+        <template id="tmpl">
+          <div class="task__inner"> 
+            <label>
+              <input class="task__checkbox" name="checkbox" type="checkbox"/><i class="task__i"></i>
+            </label>
+            <input class="task__input" type="text" readonly=""/>
+            <div class="task__actions"> 
+              <button class="task__edit"><img src="images/edit.svg"/></button>
+              <button class="task__delete"><img src="images/delete.svg"/></button>
+            </div>
+          </div>
+        </template>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>
